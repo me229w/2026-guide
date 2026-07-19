@@ -1,0 +1,650 @@
+/* ==========================================================================
+   1. 共通設定とブランドカラー変数
+   ========================================================================== */
+:root {
+    --bg-stripe-light: #F6E0BB;
+    --bg-stripe-dark: #EAD0A8; /* ストライプの濃い方の色 */
+    --brand-maroon: #6B0F10;   /* 深いワインレッド（文字用） */
+    --brand-red-base: #7F1718; /* メインの赤背景 */
+    --brand-red-dark: #A43030; /* ヘッダーの赤 */
+    --brand-gold: #D59D00;     /* 金色・黄色のアクセントボタンボタン */
+    --text-dark: #000000;
+    
+    /* フォントファミリー */
+    --font-serif: 'Noto Serif JP', serif;
+    --font-sans: 'Inter', sans-serif;
+}
+
+/* リセットcss */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    background-color: #ffffff;
+    font-family: var(--font-sans);
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 共通の見出しスタイル */
+.section-title-serif {
+    font-family: var(--font-serif);
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--brand-maroon);
+    text-align: center;
+    letter-spacing: 0.05em;
+}
+.section-title-serif.text-left {
+    text-align: left;
+    font-size: 44px;
+    font-weight: 600;
+}
+
+/* 共通：もっと見るボタン */
+.more-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.btn-more-white {
+    display: inline-block;
+    width: 420px;
+    height: 85px;
+    background: #ffffff;
+    color: #000000;
+    font-family: var(--font-serif);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 85px;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #E0E0E0;
+}
+.btn-more-white.shadow-type {
+    border: none;
+    box-shadow: 0px 4px 12px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================================================
+   2. ヘッダー (Header)
+   ========================================================================== */
+.site-header {
+    width: 100%;
+    height: 140px;
+    background-color: var(--brand-red-dark);
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.header-inner {
+    width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.site-logo {
+    color: #FFA718;
+    font-family: var(--font-serif);
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.header-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 700;
+    position: relative;
+}
+
+/* ナビゲーションの間の縦線仕切り */
+.header-nav a:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 30px;
+    background-color: #ffffff;
+}
+
+/* 丸型メニューボタン（ハンバーガー） */
+.hamburger-menu {
+    width: 85px;
+    height: 85px;
+    background-color: #FEE2B3;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.hamburger-menu span {
+    display: block;
+    width: 45px;
+    height: 4px;
+    background-color: var(--brand-red-dark);
+}
+
+/* ==========================================================================
+   3. メインビジュアル (Hero Section)
+   ========================================================================== */
+.hero-section {
+    width: 100%;
+    background-color: #000000; /* シアターの暗がりを再現する黒帯 */
+    padding: 60px 0;
+}
+
+.hero-inner {
+    width: 1440px;
+    margin: 0 auto;
+    background-color: var(--brand-red-base); /* 赤い布シートのような背景 */
+    display: flex;
+    align-items: center;
+    padding: 40px 60px;
+    position: relative;
+    min-height: 580px;
+}
+
+.hero-circle-image {
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 8px solid rgba(255,255,255,0.1);
+    flex-shrink: 0;
+}
+.hero-circle-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content {
+    margin-left: 60px;
+    color: #ffffff;
+}
+
+.hero-lead-text {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 2.2;
+    max-width: 700px;
+}
+
+.btn-cta {
+    display: inline-block;
+    margin-top: 50px;
+    width: 480px;
+    height: 60px;
+    background-color: var(--brand-gold);
+    color: #ffffff;
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 60px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 48px;
+    transition: background-color 0.3s;
+}
+.btn-cta:hover {
+    background-color: #bfa300;
+}
+
+/* ==========================================================================
+   4. ストライプ背景共通エリア（おすすめ ＆ 流れ）
+   ========================================================================== */
+.stripe-bg-container {
+    width: 100%;
+    /* CSSのグラデーションで縦のストライプ（縞模様）を再現 */
+    background: repeating-linear-gradient(
+        90deg,
+        var(--bg-stripe-light),
+        var(--bg-stripe-light) 60px,
+        var(--bg-stripe-dark) 60px,
+        var(--bg-stripe-dark) 120px
+    );
+    padding: 100px 0;
+}
+
+/* 見出しの飾り線（オーナメント） */
+.section-decor-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+.section-decor-header .ornament-line {
+    font-size: 24px;
+    color: var(--brand-gold);
+    margin-bottom: 10px;
+}
+/* 飾り線の代用としての金色のダミーマーク */
+.section-decor-header::before {
+    content: "✦ ─── ❖ ─── ✦";
+    color: var(--brand-gold);
+    display: block;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* 4-1. こんな人におすすめ */
+.recommend-section {
+    width: 1440px;
+    margin: 0 auto 120px auto;
+    padding: 0 50px;
+}
+
+.recommend-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.recommend-card {
+    width: 23%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recommend-img {
+    width: 100%;
+    height: 175px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.recommend-txt {
+    margin-top: 20px;
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #000000;
+}
+
+/* 4-2. 映画までの流れ */
+.flow-section {
+    width: 1440px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+.flow-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2列構成 */
+    gap: 60px 40px;
+}
+
+.flow-item {
+    display: flex;
+    background: transparent;
+    align-items: flex-start;
+}
+
+.flow-media {
+    flex-shrink: 0;
+}
+
+.flow-img {
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.flow-body {
+    margin-left: 30px;
+    position: relative;
+    height: 260px; /* 画像と高さを揃えて配置を綺麗に */
+    display: flex;
+    flex-direction: column;
+}
+
+.flow-step-title {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--brand-maroon);
+    margin-bottom: 15px;
+}
+
+.flow-step-desc {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.8;
+    color: #000000;
+    max-width: 280px;
+}
+
+.btn-detail {
+    margin-top: auto; /* 下部に固定 */
+    display: block;
+    width: 145px;
+    height: 50px;
+    background-color: var(--brand-gold);
+    color: #ffffff;
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================================================
+   5. 作品紹介セクション (Movies Section)
+   ========================================================================== */
+.movies-section {
+    width: 1440px;
+    margin: 0 auto;
+    padding: 80px 50px;
+}
+
+.section-simple-header {
+    margin-bottom: 40px;
+}
+
+.movie-slider-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.movie-card {
+    width: 18%;
+    background: #ffffff;
+    box-shadow: 0px 4px 12.5px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    overflow: hidden;
+    padding-bottom: 15px;
+}
+
+.movie-img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+.movie-title {
+    padding: 15px 10px 0 10px;
+    font-family: var(--font-serif);
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000;
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 40px;
+}
+.slider-dots .dot {
+    width: 24px;
+    height: 24px;
+    background-color: #D9D9D9;
+    border-radius: 50%;
+}
+.slider-dots .dot.active {
+    background-color: var(--brand-maroon); /* アクティブなドット */
+}
+
+/* ==========================================================================
+   6. ひとり映画の魅力 (Charm Section)
+   ========================================================================== */
+.charm-section {
+    width: 100%;
+    background-color: var(--brand-red-base);
+    padding: 80px 0;
+}
+
+.charm-inner {
+    width: 1440px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+.charm-main-title {
+    font-family: var(--font-serif);
+    font-size: 56px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 50px;
+    text-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+}
+
+.charm-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.charm-box {
+    width: 23%;
+    height: 240px;
+    border: 2px solid #F6E0BB;
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.charm-txt {
+    color: #ffffff;
+    font-family: var(--font-serif);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 2.2;
+}
+
+/* ==========================================================================
+   7. 鑑賞中のマナー (Manner Section)
+   ========================================================================== */
+.manner-section {
+    width: 100%;
+    /* グラデーションと半透明効果をブレンドして上品なシアター調の背景を表現 */
+    background: linear-gradient(180deg, #F6E0BB 0%, #E2D2B4 100%);
+    padding: 100px 0;
+}
+
+.manner-inner {
+    width: 1440px;
+    margin: 0 auto;
+    padding: 0 50px;
+    position: relative;
+}
+
+/* 左上の見出しリボン風デコレーション */
+.manner-ribbon-title {
+    display: inline-block;
+    background-color: var(--brand-red-base);
+    color: #ffffff;
+    font-family: var(--font-serif);
+    font-size: 38px;
+    font-weight: 600;
+    padding: 15px 60px;
+    margin-bottom: 60px;
+}
+
+.manner-list {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.manner-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.manner-circle-icon {
+    width: 130px;
+    height: 130px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 600;
+    color: #000000;
+}
+
+.manner-line-border {
+    flex-grow: 1;
+    margin-left: 30px;
+    height: 1px;
+    background-color: #000000;
+}
+
+.manner-footer-note {
+    text-align: right;
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 20px;
+}
+
+/* ==========================================================================
+   8. お役立ち情報 (Useful Info Section)
+   ========================================================================== */
+.info-section {
+    width: 1440px;
+    margin: 0 auto;
+    padding: 100px 50px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 左右2列 */
+    gap: 60px 80px;
+    margin-top: 60px;
+}
+
+.info-row-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.info-thumb {
+    width: 100px;
+    height: 100px;
+    background-color: #D9D9D9;
+    flex-shrink: 0;
+}
+
+.info-content {
+    flex-grow: 1;
+    margin-left: 40px;
+}
+
+.info-title-text {
+    font-family: var(--font-sans);
+    font-size: 24px;
+    font-weight: 400;
+    color: #000000;
+    padding-bottom: 15px;
+}
+
+.info-underline {
+    width: 100%;
+    height: 1px;
+    background-color: #000000;
+}
+
+/* ==========================================================================
+   9. Q&A セクション (Q&A Section)
+   ========================================================================== */
+.qa-section {
+    width: 100%;
+    background-color: #F6E0BB;
+    padding: 80px 0;
+}
+
+.qa-inner {
+    width: 1440px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+.qa-list {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    margin-top: 50px;
+}
+
+.qa-accordion-bar {
+    width: 100%;
+    height: 75px;
+    background-color: #ffffff;
+    /* 右側のアコーディオン矢印アイコンのダミー表現 */
+    position: relative;
+}
+.qa-accordion-bar::after {
+    content: "▼";
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #888888;
+}
+
+/* ==========================================================================
+   10. フッター (Footer)
+   ========================================================================== */
+.site-footer {
+    width: 100%;
+    height: 350px;
+    background-color: #7D7D7D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-copyright {
+    color: #ffffff;
+    font-family: var(--font-serif);
+    font-size: 16px;
+    font-weight: 600;
+}

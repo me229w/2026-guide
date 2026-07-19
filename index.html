@@ -1,1 +1,294 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ひとり映画の世界へようこそ</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts からフォントを読み込み（明朝体とゴシック体） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
 
+    <!-- ヘッダー（最上部の赤いバー） -->
+    <header class="site-header">
+        <div class="header-inner">
+            <h1 class="site-logo">SITE NAME</h1>
+            <nav class="header-nav">
+                <a href="#flow">映画までの流れ</a>
+                <a href="#movies">作品を探す</a>
+                <a href="#info">お役立ち情報</a>
+                <a href="#qa">Q&A</a>
+            </nav>
+            <button class="hamburger-menu" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- メインビジュアル（丸い画像とメッセージ） -->
+    <section class="hero-section">
+        <div class="hero-inner">
+            <div class="hero-circle-image">
+                <!-- ここにシアターの丸いメイン画像が入ります -->
+                <img src="images/elipse.png" alt="ひとり映画の世界へようこそ">
+            </div>
+            <div class="hero-content">
+                <p class="hero-lead-text">
+                    当サイトは映画館へ映画を見に行くための流れや、
+                    少しでもひとり映画や映画館へ足を運ぶ際に疑問や不安を取り除き、
+                    気軽に映画を見に行けることを想い制作しております。
+                </p>
+                <a href="#flow" class="btn-cta">ひとり映画デビューの方はコチラ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ストライプ背景の共通コンテナ（「おすすめ」と「流れ」を包む） -->
+    <div class="stripe-bg-container">
+        
+        <!-- こんな人におすすめセクション -->
+        <section class="recommend-section">
+            <div class="section-decor-header">
+                <div class="ornament-line"></div>
+                <h2 class="section-title-serif">こんな人におすすめ</h2>
+            </div>
+            
+            <div class="recommend-grid">
+                <div class="recommend-card">
+                    <img src="https://placehold.co/268x175" alt="ひとり映画デビュー" class="recommend-img">
+                    <p class="recommend-txt">ひとり映画デビューしてみたい</p>
+                </div>
+                <div class="recommend-card">
+                    <img src="https://placehold.co/268x175" alt="ひとり時間が好き" class="recommend-img">
+                    <p class="recommend-txt">ひとり時間が好き</p>
+                </div>
+                <div class="recommend-card">
+                    <img src="https://placehold.co/268x175" alt="家観賞が多い" class="recommend-img">
+                    <p class="recommend-txt">映画は好きだけどいつも家で観ている</p>
+                </div>
+                <div class="recommend-card">
+                    <img src="https://placehold.co/268x175" alt="新しい趣味" class="recommend-img">
+                    <p class="recommend-txt">新しい趣味を探している</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 映画までの流れセクション -->
+        <section id="flow" class="flow-section">
+            <div class="section-decor-header">
+                <div class="ornament-line"></div>
+                <h2 class="section-title-serif">映画までの流れ</h2>
+            </div>
+
+            <div class="flow-grid">
+                <!-- ステップ1 -->
+                <div class="flow-item">
+                    <div class="flow-media">
+                        <img src="https://placehold.co/300x300" alt="映画・映画館選び" class="flow-img">
+                    </div>
+                    <div class="flow-body">
+                        <h3 class="flow-step-title">①映画/映画館 選び</h3>
+                        <p class="flow-step-desc">映画選びのポイントや映画館の選び方について。</p>
+                        <a href="#" class="btn-detail">詳細</a>
+                    </div>
+                </div>
+                <!-- ステップ2 -->
+                <div class="flow-item">
+                    <div class="flow-media">
+                        <img src="https://placehold.co/300x300" alt="チケット購入" class="flow-img">
+                    </div>
+                    <div class="flow-body">
+                        <h3 class="flow-step-title">②チケット購入</h3>
+                        <p class="flow-step-desc">オンラインでの購入または窓口での購入方法について。</p>
+                        <a href="#" class="btn-detail">詳細</a>
+                    </div>
+                </div>
+                <!-- ステップ3 -->
+                <div class="flow-item">
+                    <div class="flow-media">
+                        <img src="https://placehold.co/300x300" alt="発券" class="flow-img">
+                    </div>
+                    <div class="flow-body">
+                        <h3 class="flow-step-title">③発券</h3>
+                        <p class="flow-step-desc">チケットの発券方法について。</p>
+                        <a href="#" class="btn-detail">詳細</a>
+                    </div>
+                </div>
+                <!-- ステップ4 -->
+                <div class="flow-item">
+                    <div class="flow-media">
+                        <img src="https://placehold.co/300x300" alt="入場" class="flow-img">
+                    </div>
+                    <div class="flow-body">
+                        <h3 class="flow-step-title">④入場</h3>
+                        <p class="flow-step-desc">入場方法や当日必要なものについて。</p>
+                        <a href="#" class="btn-detail">詳細</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 作品紹介セクション -->
+    <section id="movies" class="movies-section">
+        <div class="section-simple-header">
+            <h2 class="section-title-serif text-left">作品紹介</h2>
+        </div>
+        
+        <div class="movie-slider-container">
+            <!-- 各作品カード -->
+            <div class="movie-card">
+                <img src="https://placehold.co/260x340" alt="トイ・ストーリー5" class="movie-img">
+                <h3 class="movie-title">トイ・ストーリー５</h3>
+            </div>
+            <div class="movie-card">
+                <img src="https://placehold.co/260x340" alt="マイケル" class="movie-img">
+                <h3 class="movie-title">マイケル</h3>
+            </div>
+            <div class="movie-card">
+                <img src="https://placehold.co/260x340" alt="プラダを着た悪魔2" class="movie-img">
+                <h3 class="movie-title">プラダを着た悪魔2</h3>
+            </div>
+            <div class="movie-card">
+                <img src="https://placehold.co/260x340" alt="ダミー作品" class="movie-img">
+                <h3 class="movie-title">ダミーテキスト</h3>
+            </div>
+            <div class="movie-card">
+                <img src="https://placehold.co/260x340" alt="ダミー作品" class="movie-img">
+                <h3 class="movie-title">ダミーテキスト</h3>
+            </div>
+        </div>
+        
+        <!-- スライダーのドットインジケーター -->
+        <div class="slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <!-- ひとり映画の魅力セクション（深い赤背景） -->
+    <section class="charm-section">
+        <div class="charm-inner">
+            <h2 class="charm-main-title">ひとり映画の魅力</h2>
+            
+            <div class="charm-grid">
+                <div class="charm-box">
+                    <p class="charm-txt">空き時間に気軽に立ち寄れる。</p>
+                </div>
+                <div class="charm-box">
+                    <p class="charm-txt">人に気を遣わずに見ることができる。<br>作品に没頭できる。</p>
+                </div>
+                <div class="charm-box">
+                    <p class="charm-txt">自分が好きな席/見やすい席で見ることができる。</p>
+                </div>
+                <div class="charm-box">
+                    <p class="charm-txt">映画館の売店で買えるスナックやドリンクを人目を気にせずたくさん食べれる。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 鑑賞中のマナーセクション（波打つようなグラデーション背景部分） -->
+    <section class="manner-section">
+        <div class="manner-inner">
+            <div class="manner-ribbon-title">鑑賞中のマナー</div>
+            
+            <!-- マナーのリスト項目 -->
+            <div class="manner-list">
+                <div class="manner-item">
+                    <div class="manner-circle-icon">画像</div>
+                    <div class="manner-line-border"></div>
+                </div>
+                <div class="manner-item">
+                    <div class="manner-circle-icon"></div>
+                    <div class="manner-line-border"></div>
+                </div>
+                <div class="manner-item">
+                    <div class="manner-circle-icon"></div>
+                    <div class="manner-line-border"></div>
+                </div>
+                <div class="manner-item">
+                    <div class="manner-circle-icon"></div>
+                    <div class="manner-line-border"></div>
+                </div>
+            </div>
+            
+            <p class="manner-footer-note">ルールを守って楽しく鑑賞しましょう</p>
+        </div>
+    </section>
+
+    <!-- お役立ち情報セクション -->
+    <section id="info" class="info-section">
+        <div class="section-simple-header">
+            <h2 class="section-title-serif text-left">お役立ち情報</h2>
+        </div>
+        
+        <div class="info-grid">
+            <div class="info-row-item">
+                <div class="info-thumb"></div>
+                <div class="info-content">
+                    <p class="info-title-text">シネマカード会員登録</p>
+                    <div class="info-underline"></div>
+                </div>
+            </div>
+            <div class="info-row-item">
+                <div class="info-thumb"></div>
+                <div class="info-content">
+                    <p class="info-title-text">割引サービス</p>
+                    <div class="info-underline"></div>
+                </div>
+            </div>
+            <div class="info-row-item">
+                <div class="info-thumb"></div>
+                <div class="info-content">
+                    <p class="info-title-text">割引サービス</p>
+                    <div class="info-underline"></div>
+                </div>
+            </div>
+            <div class="info-row-item">
+                <div class="info-thumb"></div>
+                <div class="info-content">
+                    <p class="info-title-text">割引サービス</p>
+                    <div class="info-underline"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="more-btn-container">
+            <a href="#" class="btn-more-white">もっと見る</a>
+        </div>
+    </section>
+
+    <!-- Q&Aセクション（薄いベージュ背景） -->
+    <section id="qa" class="qa-section">
+        <div class="qa-inner">
+            <h2 class="section-title-serif text-left">Q&A</h2>
+            
+            <div class="qa-list">
+                <div class="qa-accordion-bar"></div>
+                <div class="qa-accordion-bar"></div>
+                <div class="qa-accordion-bar"></div>
+                <div class="qa-accordion-bar"></div>
+            </div>
+            
+            <div class="more-btn-container">
+                <a href="#" class="btn-more-white shadow-type">もっと見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター（最下部のグレー帯） -->
+    <footer class="site-footer">
+        <p class="footer-copyright">ダミーテキスト</p>
+    </footer>
+
+</body>
+</html>
