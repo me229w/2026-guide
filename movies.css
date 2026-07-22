@@ -1,0 +1,343 @@
+/* --- リセット CSS & 基本設定 --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  color: #333;
+  background-color: #fff;
+  line-height: 1.7;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- 共通レイアウト --- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* --- ヘッダー（赤背景＋丸メニュー） --- */
+.site-header {
+  background-color: #a62b2b;
+  height: 90px;
+  position: relative;
+}
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px;
+}
+.menu-btn {
+  background-color: #f7e1b5;
+  border: none;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;   /* ★重要：flexレイアウト内での変形・潰れを強力に防ぐ */
+  box-sizing: border-box; /* パディング等によるズレ防止 */
+  padding: 0;
+}
+.menu-btn span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background-color: #a62b2b;
+  border-radius: 2px;
+}
+
+/* --- メインコンテンツ構造 --- */
+.movie-intro {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+.movie-poster {
+  flex: 0 0 40%;
+}
+.movie-poster img {
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.movie-detail {
+  flex: 1;
+}
+
+/* --- 映画の詳細テキスト要素 --- */
+.movie-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.tag-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.tag {
+  background-color: #fcefd2;
+  color: #c68a4c;
+  font-size: 0.75rem;
+  padding: 3px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+.rating-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+.stars {
+  color: #ffd000; /* 必要に応じて金色の★画像やWebフォント等に置き換えてください */
+
+}
+.rating-score {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* --- ボタンエリア --- */
+.action-buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 25px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
+.btn:hover {
+  opacity: 0.8;
+}
+.btn-primary {
+  background-color: #a62b2b;
+  color: #fff;
+}
+.btn-secondary {
+  background-color: #fcefd2;
+  color: #8c5213;
+}
+
+/* --- 説明文 & レビュー --- */
+.movie-summary {
+  font-size: 0.85rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+.review-badge {
+  display: inline-block;
+  border: 1px solid #a62b2b;
+  color: #a62b2b;
+  font-size: 0.8rem;
+  padding: 2px 12px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  position: relative;
+}
+/* レビューの吹き出しのしっぽ部分（お好みで） */
+.review-badge::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 5px 0 5px;
+  border-color: #a62b2b transparent transparent transparent;
+}
+.review-text {
+  font-size: 0.95rem;
+}
+
+/* --- 下部：シリーズ情報 --- */
+.series-section {
+  margin-top: 40px;
+}
+.section-title {
+  font-size: 1.3rem;
+  color: #7a1f1f;
+  margin-bottom: 20px;
+}
+.series-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.series-card img {
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  margin-bottom: 10px;
+}
+.series-card p {
+  font-size: 0.85rem;
+}
+
+/* --- フッター（ストライプ背景） --- */
+.site-footer {
+  height: 180px;
+  background-color: #fcefd2;
+  /* 薄い黄色とやや濃い黄色の縦ストライプを実装 */
+  background-image: linear-gradient(90deg, transparent 50%, #f7dfb5 50%);
+  background-size: 80px 100%;
+}
+
+/* --- Home パンくずリンク調整 --- */
+.breadcrumb {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+}
+.breadcrumb a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.breadcrumb a:hover {
+  opacity: 0.8;
+}
+
+/* ==========================================
+   ドロワーメニュー（スライドメニュー設定）
+   ========================================== */
+
+/* 背景の暗がり（オーバーレイ） */
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 998;
+}
+
+.drawer-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 右から出てくるメニュー本体 */
+.drawer-menu {
+  position: fixed;
+  top: 0;
+  right: -320px; /* 初期状態は画面外 */
+  width: 280px;
+  height: 100vh;
+  background-color: #6b0f10; /* シックなワインレッド背景 */
+  padding: 60px 30px 40px 30px;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.3);
+  transition: right 0.3s ease;
+  z-index: 999;
+}
+
+/* 表示された時 */
+.drawer-menu.is-active {
+  right: 0;
+}
+
+/* 閉じる（×）ボタン */
+.drawer-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.drawer-close:hover {
+  opacity: 1;
+}
+
+/* メニューのナビゲーションリスト */
+.drawer-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.drawer-nav-list li a {
+  color: #f6e0bb; /* ゴールド/ベージュ系カラー */
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  display: block;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.drawer-nav-list li a:hover {
+  color: #ffffff;
+  transform: translateX(5px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- レスポンシブ対応（スマホ表示用） --- */
+@media (max-width: 768px) {
+  .movie-intro {
+    flex-direction: column;
+  }
+  .movie-poster {
+    width: 100%;
+  }
+  .action-buttons {
+    flex-direction: column;
+  }
+  .series-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>トイ・ストーリー5 - 映画詳細</title>
+  <link rel="stylesheet" href="movies.css">
+</head>
+<body>
+
+  <!-- ヘッダーエリア -->
+  <header class="site-header">
+    <div class="breadcrumb">
+    <a href="index.html">Home</a> &gt;
+  </div>
+    <div class="header-inner">
+      <button class="menu-btn hamburger-menu" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <!-- スライドドロワーメニュー -->
+    <div class="drawer-menu">
+      <button class="drawer-close" aria-label="メニューを閉じる">×</button>
+      <ul class="drawer-nav-list">
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="movie.html">映画選び</a></li>
+        <li><a href="ticket.html">チケット購入</a></li>
+        <li><a href="ticketing.html">発券</a></li>
+        <li><a href="adomission.html">入場</a></li>
+      </ul>
+    </div>
+    <!-- オーバーレイ（背景の暗がり） -->
+    <div class="drawer-overlay"></div>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- 映画メイン情報セクション -->
+      <section class="movie-intro">
+        <!-- 左側：ポスタービジュアル -->
+        <div class="movie-poster">
+          <img src="images/toy5.png" alt="トイ・ストーリー5 ポスター">
+        </div>
+        
+        <!-- 右側：テキスト詳細情報 -->
+        <div class="movie-detail">
+          <h1 class="movie-title">トイ・ストーリー5</h1>
+          
+          <div class="tag-container">
+            <span class="tag">ファミリー</span>
+            <span class="tag">全年齢</span>
+          </div>
+          
+          <div class="rating-container">
+            <div class="stars">★★★★★</div>
+            <span class="rating-score">4.9</span>
+          </div>
+          
+          <div class="action-buttons">
+            <a href="#" class="btn btn-primary">公式サイトを見る <span class="icon">↗</span></a>
+            <a href="#" class="btn btn-secondary">上映館・スケジュールを探す <span class="icon">📍</span></a>
+          </div>
+          
+          <p class="movie-summary">
+            ボニーの成長を見守ってきたジェシーたち。しかし、新たにやってきたタブレット〈リリーパッド〉の登場によって、ボニーは次第にデジタルの世界へ夢中になり、おもちゃたちと遊ぶ時間が減ってしまう。大切な笑顔を取り戻すため、ジェシーはウッディやバズと再び力を合わせ、新たな仲間たちとともに冒険へ。時代が変わっても変わらない、おもちゃと子どもの絆を描く感動の物語。
+          </p>
+          
+          <div class="review-section">
+            <span class="review-badge">レビュー</span>
+            <p class="review-text">
+              『トイ・ストーリー5』は、シリーズならではの笑いと感動はそのままに、現代の子どもたちを取り巻く環境の変化をテーマとして描いた作品です。スマートフォンやタブレットが身近になった今だからこそ、多くの人が共感できる内容となっており、子どもだけでなく大人にも考えさせられるメッセージが込められています。これまでシリーズを見続けてきたファンには懐かしさを感じる場面も多く、新たなキャラクターたちも物語に自然と溶け込み、作品に新鮮さを与えています。特にジェシーが物語の中心として活躍するため、これまでとは少し違った視点で楽しめるのも魅力です。アクションやユーモアのテンポも良く、家族や友人と楽しむのはもちろん、一人でも最後まで飽きずに鑑賞できます。シリーズを知っている人はもちろん、久しぶりに『トイ・ストーリー』を観る人にもおすすめできる、笑って泣ける心温まる作品です。全体として、過去作へのリスペクトを大切にしながらも、新しい時代に合わせたテーマを取り入れた続編として、多くの人が楽しめる仕上がりになっています。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- シリーズ情報セクション（※無い映画ページの場合はこのsectionごと削除・非表示でOK） -->
+      <section class="series-section">
+        <h2 class="section-title">シリーズ情報</h2>
+        <div class="series-grid">
+          <div class="series-card">
+            <img src="images/toy1.png" alt="トイ・ストーリー1">
+            <p>トイ・ストーリー1</p>
+          </div>
+          <div class="series-card">
+            <img src="images/toy2.png" alt="トイ・ストーリー2">
+            <p>トイ・ストーリー2</p>
+          </div>
+          <div class="series-card flex-placeholder">
+            <img src="images/toy3.png"  alt="トイ・ストーリー3">
+            <p>トイ・ストーリー3</p>
+          </div>
+          <div class="series-card">
+            <img src="images/toy4.png" alt="トイ・ストーリー4">
+            <p>トイ・ストーリー4</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- フッター（ストライプ背景） -->
+  <footer class="site-footer"></footer>
+
+  <!-- メニュー開閉用JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburgerBtn = document.querySelector(".hamburger-menu");
+      const drawerMenu = document.querySelector(".drawer-menu");
+      const drawerCloseBtn = document.querySelector(".drawer-close");
+      const drawerOverlay = document.querySelector(".drawer-overlay");
+      const drawerLinks = document.querySelectorAll(".drawer-nav-list a");
+
+      // メニューを開く関数
+      const openMenu = () => {
+        drawerMenu.classList.add("is-active");
+        drawerOverlay.classList.add("is-active");
+        document.body.style.overflow = "hidden"; // 背景スクロール固定
+      };
+
+      // メニューを閉じる関数
+      const closeMenu = () => {
+        drawerMenu.classList.remove("is-active");
+        drawerOverlay.classList.remove("is-active");
+        document.body.style.overflow = ""; // スクロール解除
+      };
+
+      // イベント設定
+      if (hamburgerBtn) hamburgerBtn.addEventListener("click", openMenu);
+      if (drawerCloseBtn) drawerCloseBtn.addEventListener("click", closeMenu);
+      if (drawerOverlay) drawerOverlay.addEventListener("click", closeMenu);
+
+      // リンククリック時に自動で閉じる
+      drawerLinks.forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+    });
+  </script>
+</body>
+</html>

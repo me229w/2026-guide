@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ステップ1. 観たい映画を見つける</title>
+    <link rel="stylesheet" href="flow.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700&family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="page-header">
+      <div class="breadcrumb">
+      <a href="index.html">Home</a> &gt;</div>
+      <button class="hamburger-menu" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+<!-- スライドドロワーメニュー -->
+            <div class="drawer-menu">
+                <button class="drawer-close" aria-label="メニューを閉じる">×</button>
+                <ul class="drawer-nav-list">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="movie.html">映画選び</a></li>
+                    <li><a href="ticket.html">チケット購入</a></li>
+                    <li><a href="ticketing.html">発券</a></li>
+                    <li><a href="adomission.html">入場</a></li>
+                </ul>
+            </div>
+            <!-- オーバーレイ（背景の暗がり） -->
+            <div class="drawer-overlay"></div>
+
+        </div>
+    </header>
+
+    <div class="container">
+      <h1 class="step-title">ステップ１．観たい映画を見つける／映画館を探す</h1>
+
+      <h2 class="section-title">①まずは見たい映画を見つける。</h2>
+      <p class="note-text" style="font-size: 16px; margin-top: 0; margin-bottom: 30px">
+        ★映画選びのポイントとして最新作のものをチェックしたり、自分が好きなジャンルで検索すると観たい映画が見つかるかも。
+      </p>
+
+      <p style="font-weight: bold; margin-bottom: 10px">上映中/公開予定作品/映画の口コミが見れる映画情報サイト</p>
+      <div class="cinema-list">
+        
+          <p><a href="https://eiga.com/">・映画.com</p></a>
+          <p><a href="https://filmarks.com/">・filmarks</p></a>
+  
+      </div>
+
+      <h2 class="section-title" style="margin-top: 50px">
+        ②ネットで映画を検索し近くの映画館、または希望の場所の映画館を決めて映画館公式サイトへ。
+      </h2>
+<div class="cinema-list">
+  <p><a href="https://www.tohotheater.jp/">・TOHOシネマズ</p></a>
+  <p><a href="https://www.unitedcinemas.jp/index.html">・ユナイテッド・シネマ</p></a>
+  <p><a href="https://cinema.109cinemas.net/cgi-bin/pc/site/det.cgi?tsc=I1">・１０９シネマズ</p></a>
+  <p><a href="https://www.aeoncinema.com/">・イオンシネマ</p></a>
+</div>
+
+
+      <!-- 下部ボタン（次へだけ） -->
+      <div class="page-navigation right-only">
+        <a href="ticket.html" class="nav-btn btn-next">次へ進む</a>
+      </div>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerBtn = document.querySelector('.hamburger-menu');
+    const drawerMenu = document.querySelector('.drawer-menu');
+    const drawerCloseBtn = document.querySelector('.drawer-close');
+    const drawerOverlay = document.querySelector('.drawer-overlay');
+    const drawerLinks = document.querySelectorAll('.drawer-nav-list a');
+
+    // メニューを開く関数
+    const openMenu = () => {
+        drawerMenu.classList.add('is-active');
+        drawerOverlay.classList.add('is-active');
+        document.body.style.overflow = 'hidden'; // 背景スクロール固定
+    };
+
+    // メニューを閉じる関数
+    const closeMenu = () => {
+        drawerMenu.classList.remove('is-active');
+        drawerOverlay.classList.remove('is-active');
+        document.body.style.overflow = ''; // スクロール解除
+    };
+
+    // イベント設定
+    hamburgerBtn.addEventListener('click', openMenu);
+    drawerCloseBtn.addEventListener('click', closeMenu);
+    drawerOverlay.addEventListener('click', closeMenu);
+
+    // リンクをクリックした際も自動で閉じる
+    drawerLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+});
+</script>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ステップ3. チケット発券</title>
+    <link rel="stylesheet" href="flow.css">
+</head>
+<body>
+
+    <header class="page-header">
+        <div class="breadcrumb">
+        <a href="index.html">Home</a> &gt;</div>
+        <button class="hamburger-menu"aria-label="メニューを開ける">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <!-- スライドドロワーメニュー -->
+      <div class="drawer-menu">
+        <button class="drawer-close" aria-label="メニューを閉じる">×</button>
+        <ul class="drawer-nav-list">
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="movie.html">映画選び</a></li>
+          <li><a href="ticket.html">チケット購入</a></li>
+          <li><a href="ticketing.html">発券</a></li>
+          <li><a href="adomission.html">入場</a></li>
+        </ul>
+      </div>
+      <!-- オーバーレイ（背景の暗がり） -->
+      <div class="drawer-overlay"></div>
+    </header>
+
+    <div class="container">
+        <h1 class="step-title">ステップ３．チケット発券</h1>
+        <h2 class="section-title" style="margin-bottom: 40px;">劇場の発券機で発券</h2>
+
+        <!-- 3つの横並びカード -->
+        <div class="card-wrapper">
+            <div class="card">
+                <h3 class="card-title">QRをかざす</h3>
+                <p class="card-text">スマホに届いたQRを機械で読み取るだけで、簡単にチケットが発券できる。</p>
+                <div class="card-thumb"></div>
+            </div>
+            <div class="card">
+                <h3 class="card-title">番号入力</h3>
+                <p class="card-text">QRが使えない場合、予約番号と電話番号入力で発券できる。</p>
+                <div class="card-thumb"></div>
+            </div>
+            <div class="card">
+                <h3 class="card-title">発券なし</h3>
+                <p class="card-text">発券なしで、入場口の機械にQRコードを読み取らせて入場できる。</p>
+                <div class="card-thumb"></div>
+            </div>
+        </div>
+
+        <p class="note-text" style="margin-top: 40px;">※映画館によって発券方法は異なります。</p>
+
+        <!-- 下部ボタン（戻る・次へ） -->
+        <div class="page-navigation">
+            <a href="ticket.html" class="nav-btn btn-prev">戻る</a>
+            <a href="adomission.html" class="nav-btn btn-next">次へ進む</a>
+        </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const hamburgerBtn = document.querySelector(".hamburger-menu");
+        const drawerMenu = document.querySelector(".drawer-menu");
+        const drawerCloseBtn = document.querySelector(".drawer-close");
+        const drawerOverlay = document.querySelector(".drawer-overlay");
+        const drawerLinks = document.querySelectorAll(".drawer-nav-list a");
+
+        // メニューを開く関数
+        const openMenu = () => {
+          drawerMenu.classList.add("is-active");
+          drawerOverlay.classList.add("is-active");
+          document.body.style.overflow = "hidden"; // 背景スクロール固定
+        };
+
+        // メニューを閉じる関数
+        const closeMenu = () => {
+          drawerMenu.classList.remove("is-active");
+          drawerOverlay.classList.remove("is-active");
+          document.body.style.overflow = ""; // スクロール解除
+        };
+
+        // イベント設定
+        hamburgerBtn.addEventListener("click", openMenu);
+        drawerCloseBtn.addEventListener("click", closeMenu);
+        drawerOverlay.addEventListener("click", closeMenu);
+
+        // リンクをクリックした際も自動で閉じる
+        drawerLinks.forEach((link) => {
+          link.addEventListener("click", closeMenu);
+        });
+      });
+    </script>
+</body>
+</html>

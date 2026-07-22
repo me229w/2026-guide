@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Michael マイケル - 映画詳細</title>
+  <link rel="stylesheet" href="movies.css">
+</head>
+<body>
+
+  <!-- ヘッダーエリア -->
+  <header class="site-header">
+    <div class="breadcrumb">
+    <a href="index.html">Home</a> &gt;
+  </div>
+    <div class="header-inner">
+      <button class="menu-btn hamburger-menu" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <!-- スライドドロワーメニュー -->
+    <div class="drawer-menu">
+      <button class="drawer-close" aria-label="メニューを閉じる">×</button>
+      <ul class="drawer-nav-list">
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="movie.html">映画選び</a></li>
+        <li><a href="ticket.html">チケット購入</a></li>
+        <li><a href="ticketing.html">発券</a></li>
+        <li><a href="adomission.html">入場</a></li>
+      </ul>
+    </div>
+    <!-- オーバーレイ（背景の暗がり） -->
+    <div class="drawer-overlay"></div>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- 映画メイン情報セクション -->
+      <section class="movie-intro">
+        <!-- 左側：ポスタービジュアル -->
+        <div class="movie-poster">
+          <img src="images/michael2.png" alt="Michael マイケル ポスター">
+        </div>
+        
+        <!-- 右側：テキスト詳細情報 -->
+        <div class="movie-detail">
+          <h1 class="movie-title">Michael マイケル</h1>
+          
+          <div class="tag-container">
+
+            <span class="tag">全年齢</span>
+          </div>
+          
+          <div class="rating-container">
+            <div class="stars">★★★★☆</div>
+            <span class="rating-score">4.0</span>
+          </div>
+          
+          <div class="action-buttons">
+            <a href="https://www.michael-movie.jp/" class="btn btn-primary">公式サイトを見る <span class="icon">↗</span></a>
+            <a href="https://eiga.com/movie/102093/theater" class="btn btn-secondary">上映館・スケジュールを探す <span class="icon">📍</span></a>
+          </div>
+          
+          <p class="movie-summary">
+           幼い頃から類まれな才能を発揮し、「ジャクソン5」の中心メンバーとして音楽界に飛び込んだマイケル・ジャクソン。厳格な父のもとで過酷な日々を送りながらも、圧倒的な歌唱力と独創的な表現力で世界的スターへと駆け上がっていく。数々の名曲や伝説的なパフォーマンスが誕生する裏側には、栄光だけではない苦悩や孤独、葛藤もあった。本作は、キング・オブ・ポップと呼ばれたマイケルの人間らしい素顔と、世界中を魅了した軌跡を壮大なスケールで描く伝記映画。 
+
+          </p>
+          
+          <div class="review-section">
+            <span class="review-badge">レビュー</span>
+            <p class="review-text">
+             マイケル・ジャクソンの圧倒的な才能と、世界中を魅了したステージの熱量を大スクリーンで存分に体感できる作品です。ライブシーンはまるで本物のコンサートを観ているような臨場感があり、名曲の数々と迫力あるパフォーマンスに思わず引き込まれます。主演のジャファー・ジャクソンの再現度も高く、歌やダンスだけでなく細かな仕草まで見事に表現されています。一方で、伝記映画としては駆け足に感じる部分や、人物像をもう少し深く掘り下げてほしいという声もありますが、マイケルの音楽や魅力を存分に味わえる作品であることは間違いありません。ファンはもちろん、彼のことをあまり知らない人でも、その偉大さや影響力を改めて実感できる映画です。
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+
+    </div>
+  </main>
+
+  <!-- フッター（ストライプ背景） -->
+  <footer class="site-footer"></footer>
+
+  <!-- メニュー開閉用JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburgerBtn = document.querySelector(".hamburger-menu");
+      const drawerMenu = document.querySelector(".drawer-menu");
+      const drawerCloseBtn = document.querySelector(".drawer-close");
+      const drawerOverlay = document.querySelector(".drawer-overlay");
+      const drawerLinks = document.querySelectorAll(".drawer-nav-list a");
+
+      // メニューを開く関数
+      const openMenu = () => {
+        drawerMenu.classList.add("is-active");
+        drawerOverlay.classList.add("is-active");
+        document.body.style.overflow = "hidden"; // 背景スクロール固定
+      };
+
+      // メニューを閉じる関数
+      const closeMenu = () => {
+        drawerMenu.classList.remove("is-active");
+        drawerOverlay.classList.remove("is-active");
+        document.body.style.overflow = ""; // スクロール解除
+      };
+
+      // イベント設定
+      if (hamburgerBtn) hamburgerBtn.addEventListener("click", openMenu);
+      if (drawerCloseBtn) drawerCloseBtn.addEventListener("click", closeMenu);
+      if (drawerOverlay) drawerOverlay.addEventListener("click", closeMenu);
+
+      // リンククリック時に自動で閉じる
+      drawerLinks.forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+    });
+  </script>
+</body>
+</html>

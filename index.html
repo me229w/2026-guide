@@ -13,12 +13,14 @@
     <!-- ヘッダー（最上部の赤いバー） -->
     <header class="site-header">
         <div class="header-inner">
-            <h1 class="site-logo">SITE NAME</h1>
+            <h1 class="site-logo">SOLO CINEMA</h1>
             <nav class="header-nav">
+
                 <a href="#flow">映画までの流れ</a>
-                <a href="#movies">作品を探す</a>
+                <a href="#movies">作品紹介</a>
+                <a href="#manner">鑑賞中のマナー</a>
                 <a href="#info">お役立ち情報</a>
-                <a href="#qa">Q&A</a>
+                
             </nav>
             <button class="hamburger-menu" aria-label="メニューを開く">
                 <span></span>
@@ -26,15 +28,36 @@
                 <span></span>
             </button>
         </div>
+
+<!-- スライドドロワーメニュー -->
+            <div class="drawer-menu">
+                <button class="drawer-close" aria-label="メニューを閉じる">×</button>
+                <ul class="drawer-nav-list">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="movie.html">映画選び</a></li>
+                    <li><a href="ticket.html">チケット購入</a></li>
+                    <li><a href="ticketing.html">発券</a></li>
+                    <li><a href="adomission.html">入場</a></li>
+                </ul>
+            </div>
+            <!-- オーバーレイ（背景の暗がり） -->
+            <div class="drawer-overlay"></div>
+            <!-- ▲ ここまで追加 ▲ -->
+        </div>
+
     </header>
 
     <!-- メインビジュアル（丸い画像とメッセージ） -->
     <section class="hero-section">
         <div class="hero-inner">
+
+
             <div class="hero-circle-image">
                 <!-- ここにシアターの丸いメイン画像が入ります -->
-                <img src="images/elipse.png" alt="ひとり映画の世界へようこそ">
+                <img src="images/ellipse.png" alt="ひとり映画の世界へようこそ">
+                
             </div>
+
             <div class="hero-content">
                 <p class="hero-lead-text">
                     当サイトは映画館へ映画を見に行くための流れや、
@@ -56,21 +79,23 @@
                 <h2 class="section-title-serif">こんな人におすすめ</h2>
             </div>
             
+
+            
             <div class="recommend-grid">
                 <div class="recommend-card">
-                    <img src="https://placehold.co/268x175" alt="ひとり映画デビュー" class="recommend-img">
+                    <img src="images/illust1.png" alt="ひとり映画デビュー" class="recommend-img">
                     <p class="recommend-txt">ひとり映画デビューしてみたい</p>
                 </div>
                 <div class="recommend-card">
-                    <img src="https://placehold.co/268x175" alt="ひとり時間が好き" class="recommend-img">
+                    <img src="images/illust2.png" alt="ひとり時間が好き" class="recommend-img">
                     <p class="recommend-txt">ひとり時間が好き</p>
                 </div>
                 <div class="recommend-card">
-                    <img src="https://placehold.co/268x175" alt="家観賞が多い" class="recommend-img">
+                    <img src="images/illust3.png" alt="家観賞が多い" class="recommend-img">
                     <p class="recommend-txt">映画は好きだけどいつも家で観ている</p>
                 </div>
                 <div class="recommend-card">
-                    <img src="https://placehold.co/268x175" alt="新しい趣味" class="recommend-img">
+                    <img src="images/illust4.png" alt="新しい趣味" class="recommend-img">
                     <p class="recommend-txt">新しい趣味を探している</p>
                 </div>
             </div>
@@ -87,45 +112,45 @@
                 <!-- ステップ1 -->
                 <div class="flow-item">
                     <div class="flow-media">
-                        <img src="https://placehold.co/300x300" alt="映画・映画館選び" class="flow-img">
+                        <img src="images/eiga.png" alt="映画・映画館選び" class="flow-img">
                     </div>
                     <div class="flow-body">
                         <h3 class="flow-step-title">①映画/映画館 選び</h3>
                         <p class="flow-step-desc">映画選びのポイントや映画館の選び方について。</p>
-                        <a href="#" class="btn-detail">詳細</a>
+                        <a href="movie.html" class="btn-detail">詳細</a>
                     </div>
                 </div>
                 <!-- ステップ2 -->
                 <div class="flow-item">
                     <div class="flow-media">
-                        <img src="https://placehold.co/300x300" alt="チケット購入" class="flow-img">
+                        <img src="images/zaseki.png" alt="チケット購入" class="flow-img">
                     </div>
                     <div class="flow-body">
                         <h3 class="flow-step-title">②チケット購入</h3>
-                        <p class="flow-step-desc">オンラインでの購入または窓口での購入方法について。</p>
-                        <a href="#" class="btn-detail">詳細</a>
+                        <p class="flow-step-desc">オンラインでの購入方法について。</p>
+                        <a href="ticket.html" class="btn-detail">詳細</a>
                     </div>
                 </div>
                 <!-- ステップ3 -->
                 <div class="flow-item">
                     <div class="flow-media">
-                        <img src="https://placehold.co/300x300" alt="発券" class="flow-img">
+                        <img src="images/ticket.png" alt="発券" class="flow-img">
                     </div>
                     <div class="flow-body">
                         <h3 class="flow-step-title">③発券</h3>
                         <p class="flow-step-desc">チケットの発券方法について。</p>
-                        <a href="#" class="btn-detail">詳細</a>
+                        <a href="ticketing.html" class="btn-detail">詳細</a>
                     </div>
                 </div>
                 <!-- ステップ4 -->
                 <div class="flow-item">
                     <div class="flow-media">
-                        <img src="https://placehold.co/300x300" alt="入場" class="flow-img">
+                        <img src="images/ni.png" alt="入場" class="flow-img">
                     </div>
                     <div class="flow-body">
                         <h3 class="flow-step-title">④入場</h3>
                         <p class="flow-step-desc">入場方法や当日必要なものについて。</p>
-                        <a href="#" class="btn-detail">詳細</a>
+                        <a href="adomission.html" class="btn-detail">詳細</a>
                     </div>
                 </div>
             </div>
@@ -140,38 +165,43 @@
         
         <div class="movie-slider-container">
             <!-- 各作品カード -->
-            <div class="movie-card">
-                <img src="https://placehold.co/260x340" alt="トイ・ストーリー5" class="movie-img">
-                <h3 class="movie-title">トイ・ストーリー５</h3>
-            </div>
-            <div class="movie-card">
-                <img src="https://placehold.co/260x340" alt="マイケル" class="movie-img">
-                <h3 class="movie-title">マイケル</h3>
-            </div>
-            <div class="movie-card">
-                <img src="https://placehold.co/260x340" alt="プラダを着た悪魔2" class="movie-img">
-                <h3 class="movie-title">プラダを着た悪魔2</h3>
-            </div>
-            <div class="movie-card">
-                <img src="https://placehold.co/260x340" alt="ダミー作品" class="movie-img">
-                <h3 class="movie-title">ダミーテキスト</h3>
-            </div>
-            <div class="movie-card">
-                <img src="https://placehold.co/260x340" alt="ダミー作品" class="movie-img">
-                <h3 class="movie-title">ダミーテキスト</h3>
-            </div>
+<div class="movie-card">
+    <a href="toy.html" class="movie-link">
+        <img src="images/toy5.png" alt="トイ・ストーリー5" class="movie-img">
+        <h3 class="movie-title">トイ・ストーリー５</h3>
+    </a>
+</div>
+
+<div class="movie-card">
+    <a href="michael.html" class="movie-link">
+        <img src="images/michael2.png" alt="マイケル" class="movie-img">
+        <h3 class="movie-title">マイケル</h3>
+    </a>
+</div>
+
+<div class="movie-card">
+    <a href="purada.html" class="movie-link">
+        <img src="images/purada2.png" alt="プラダを着た悪魔2" class="movie-img">
+        <h3 class="movie-title">プラダを着た悪魔2</h3>
+    </a>
+</div>
+
+<div class="movie-card">
+    <a href="kingdom.html" class="movie-link">
+        <img src="images/kingdom5.png" alt="ダミー作品" class="movie-img">
+        <h3 class="movie-title">キングダム　魂の決戦</h3>
+    </a>
+</div>
+
+<div class="movie-card">
+    <a href="heiru.html" class="movie-link">
+        <img src="images/heiru.png" alt="ダミー作品" class="movie-img">
+        <h3 class="movie-title">プロジェクト・へイル・メアリー</h3>
+    </a>
+</div>
         </div>
         
-        <!-- スライダーのドットインジケーター -->
-        <div class="slider-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
+
     </section>
 
     <!-- ひとり映画の魅力セクション（深い赤背景） -->
@@ -197,26 +227,42 @@
     </section>
 
     <!-- 鑑賞中のマナーセクション（波打つようなグラデーション背景部分） -->
-    <section class="manner-section">
+<section id="manner" class="manner-section">
         <div class="manner-inner">
             <div class="manner-ribbon-title">鑑賞中のマナー</div>
             
             <!-- マナーのリスト項目 -->
             <div class="manner-list">
                 <div class="manner-item">
-                    <div class="manner-circle-icon">画像</div>
+                    <div class="manner-circle-icon">
+                        <img src="images/manner1.png">
+                      
+                    </div>
+                      <p class="manner-text">上映中のスマートフォン、私語禁止</p>
                     <div class="manner-line-border"></div>
                 </div>
+                <hr class="manner-hr">
                 <div class="manner-item">
-                    <div class="manner-circle-icon"></div>
+                    <div class="manner-circle-icon">
+                        <img src="images/manner2.png">
+                    </div>
+                     <p class="manner-text">録音・録画禁止</p>
                     <div class="manner-line-border"></div>
                 </div>
+                <hr class="manner-hr">
                 <div class="manner-item">
-                    <div class="manner-circle-icon"></div>
+                    <div class="manner-circle-icon">
+                        <img src="images/manner3.png">
+                    </div>
+                     <p class="manner-text">外部からの飲食物持込禁止</p>
                     <div class="manner-line-border"></div>
                 </div>
+                <hr class="manner-hr">
                 <div class="manner-item">
-                    <div class="manner-circle-icon"></div>
+                    <div class="manner-circle-icon">
+                        <img src="images/manner4.png">
+                    </div>
+                     <p class="manner-text">前の座席を蹴る行為の禁止</p>
                     <div class="manner-line-border"></div>
                 </div>
             </div>
@@ -242,7 +288,7 @@
             <div class="info-row-item">
                 <div class="info-thumb"></div>
                 <div class="info-content">
-                    <p class="info-title-text">割引サービス</p>
+                    <p class="info-title-text">シネマデイ</p>
                     <div class="info-underline"></div>
                 </div>
             </div>
@@ -256,39 +302,75 @@
             <div class="info-row-item">
                 <div class="info-thumb"></div>
                 <div class="info-content">
-                    <p class="info-title-text">割引サービス</p>
+                    <p class="info-title-text">サブスク割引</p>
                     <div class="info-underline"></div>
                 </div>
             </div>
         </div>
         
-        <div class="more-btn-container">
-            <a href="#" class="btn-more-white">もっと見る</a>
-        </div>
+
     </section>
 
-    <!-- Q&Aセクション（薄いベージュ背景） -->
-    <section id="qa" class="qa-section">
-        <div class="qa-inner">
-            <h2 class="section-title-serif text-left">Q&A</h2>
-            
-            <div class="qa-list">
-                <div class="qa-accordion-bar"></div>
-                <div class="qa-accordion-bar"></div>
-                <div class="qa-accordion-bar"></div>
-                <div class="qa-accordion-bar"></div>
-            </div>
-            
-            <div class="more-btn-container">
-                <a href="#" class="btn-more-white shadow-type">もっと見る</a>
-            </div>
-        </div>
-    </section>
+    
 
     <!-- フッター（最下部のグレー帯） -->
     <footer class="site-footer">
-        <p class="footer-copyright">ダミーテキスト</p>
+        <p class="footer-copyright">課題用に制作したサイトです</p>
     </footer>
 
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.movie-card');
+    const container = document.querySelector('.movie-slider-container');
+
+    cards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+            // クリックしたカードの位置へスクロール移動
+            const cardLeft = card.offsetLeft - container.offsetLeft;
+            container.scrollTo({
+                left: cardLeft,
+                behavior: 'smooth'
+            });
+        });
+    });
+});
+
+
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerBtn = document.querySelector('.hamburger-menu');
+    const drawerMenu = document.querySelector('.drawer-menu');
+    const drawerCloseBtn = document.querySelector('.drawer-close');
+    const drawerOverlay = document.querySelector('.drawer-overlay');
+    const drawerLinks = document.querySelectorAll('.drawer-nav-list a');
+
+    // メニューを開く関数
+    const openMenu = () => {
+        drawerMenu.classList.add('is-active');
+        drawerOverlay.classList.add('is-active');
+        document.body.style.overflow = 'hidden'; // 背景スクロール固定
+    };
+
+    // メニューを閉じる関数
+    const closeMenu = () => {
+        drawerMenu.classList.remove('is-active');
+        drawerOverlay.classList.remove('is-active');
+        document.body.style.overflow = ''; // スクロール解除
+    };
+
+    // イベント設定
+    hamburgerBtn.addEventListener('click', openMenu);
+    drawerCloseBtn.addEventListener('click', closeMenu);
+    drawerOverlay.addEventListener('click', closeMenu);
+
+    // リンクをクリックした際も自動で閉じる
+    drawerLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+});
+</script>
 </body>
 </html>

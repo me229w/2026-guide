@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プラダを着た悪魔２ - 映画詳細</title>
+  <link rel="stylesheet" href="movies.css">
+</head>
+<body>
+
+  <!-- ヘッダーエリア -->
+  <header class="site-header">
+    <div class="breadcrumb">
+    <a href="index.html">Home</a> &gt;
+  </div>
+    <div class="header-inner">
+      <button class="menu-btn hamburger-menu" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <!-- スライドドロワーメニュー -->
+    <div class="drawer-menu">
+      <button class="drawer-close" aria-label="メニューを閉じる">×</button>
+      <ul class="drawer-nav-list">
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="movie.html">映画選び</a></li>
+        <li><a href="ticket.html">チケット購入</a></li>
+        <li><a href="ticketing.html">発券</a></li>
+        <li><a href="adomission.html">入場</a></li>
+      </ul>
+    </div>
+    <!-- オーバーレイ（背景の暗がり） -->
+    <div class="drawer-overlay"></div>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- 映画メイン情報セクション -->
+      <section class="movie-intro">
+        <!-- 左側：ポスタービジュアル -->
+        <div class="movie-poster">
+          <img src="images/purada2.png" alt="プラダを着た悪魔２chael  ポスター">
+        </div>
+        
+        <!-- 右側：テキスト詳細情報 -->
+        <div class="movie-detail">
+          <h1 class="movie-title">プラダを着た悪魔２</h1>
+          
+          <div class="tag-container">
+
+            <span class="tag">大人向け</span>
+          </div>
+          
+          <div class="rating-container">
+            <div class="stars">★★★☆☆</div>
+            <span class="rating-score">3.5</span>
+          </div>
+          
+          <div class="action-buttons">
+            <a href="https://www.20thcenturystudios.jp/movies/devil-wears-prada2" class="btn btn-primary">公式サイトを見る <span class="icon">↗</span></a>
+            <a href="https://eiga.com/movie/104001/theater/" class="btn btn-secondary">上映館・スケジュールを探す <span class="icon">📍</span></a>
+          </div>
+          
+          <p class="movie-summary">
+           前作から20年。報道記者として活躍していたアンディは、一流ファッション誌「ランウェイ」が存続の危機に陥ったことを知り、特集エディターとして編集部へ戻る。伝説の編集長ミランダ、ブランド幹部となったエミリー、そして右腕ナイジェルら、それぞれが異なる立場で再集結。変化するメディア業界やファッション界を舞台に、仕事への情熱や信念、人との絆が再び試されていく。
+          </p>
+          
+          <div class="review-section">
+            <span class="review-badge">レビュー</span>
+            <p class="review-text">
+             『プラダを着た悪魔2』は、前作の華やかなファッションや軽快なテンポを受け継ぎながら、20年という時の流れを経た登場人物たちの成長を描いた作品です。アンディやミランダをはじめ、おなじみのキャラクターが再び登場し、それぞれの立場で仕事や人生に向き合う姿が印象的でした。美しい衣装や洗練された映像は今回も見どころで、ファッション好きなら思わず見入ってしまうシーンが数多くあります。
+また、本作は華やかさだけでなく、時代の変化や仕事への価値観、自分らしい生き方についても丁寧に描かれており、共感できる場面が多くありました。テンポの良いストーリーで最後まで飽きることなく楽しめ、前作を観た人はもちろん、初めてシリーズに触れる人でも十分楽しめる作品です。観終わった後には、仕事や夢に向かう前向きな気持ちになれる映画です。
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+
+    </div>
+  </main>
+
+  <!-- フッター（ストライプ背景） -->
+  <footer class="site-footer"></footer>
+
+  <!-- メニュー開閉用JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburgerBtn = document.querySelector(".hamburger-menu");
+      const drawerMenu = document.querySelector(".drawer-menu");
+      const drawerCloseBtn = document.querySelector(".drawer-close");
+      const drawerOverlay = document.querySelector(".drawer-overlay");
+      const drawerLinks = document.querySelectorAll(".drawer-nav-list a");
+
+      // メニューを開く関数
+      const openMenu = () => {
+        drawerMenu.classList.add("is-active");
+        drawerOverlay.classList.add("is-active");
+        document.body.style.overflow = "hidden"; // 背景スクロール固定
+      };
+
+      // メニューを閉じる関数
+      const closeMenu = () => {
+        drawerMenu.classList.remove("is-active");
+        drawerOverlay.classList.remove("is-active");
+        document.body.style.overflow = ""; // スクロール解除
+      };
+
+      // イベント設定
+      if (hamburgerBtn) hamburgerBtn.addEventListener("click", openMenu);
+      if (drawerCloseBtn) drawerCloseBtn.addEventListener("click", closeMenu);
+      if (drawerOverlay) drawerOverlay.addEventListener("click", closeMenu);
+
+      // リンククリック時に自動で閉じる
+      drawerLinks.forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+    });
+  </script>
+</body>
+</html>

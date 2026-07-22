@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ステップ4. 入場</title>
+    <link rel="stylesheet" href="flow.css">
+</head>
+<body>
+
+    <header class="page-header">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> &gt;</div>
+              <button class="hamburger-menu"aria-label="メニューを開ける">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <!-- スライドドロワーメニュー -->
+      <div class="drawer-menu">
+        <button class="drawer-close" aria-label="メニューを閉じる">×</button>
+        <ul class="drawer-nav-list">
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="movie.html">映画選び</a></li>
+          <li><a href="ticket.html">チケット購入</a></li>
+          <li><a href="ticketing.html">発券</a></li>
+          <li><a href="adomission.html">入場</a></li>
+        </ul>
+      </div>
+      <!-- オーバーレイ（背景の暗がり） -->
+      <div class="drawer-overlay"></div>
+    </header>
+
+    <div class="container">
+        <h1 class="step-title">ステップ４．入場</h1>
+
+        <!-- シンプルな縦並びリスト -->
+        <div style="font-size: 18px; font-weight: bold; line-height: 2.5; margin-bottom: 60px;">
+            <p>①発券したチケット、またはスマホでのチケットQRコードをスタッフの指示に従ってQRコードリーダーにかざす</p>
+            <p>②学生の場合学生証を提示</p>
+            <p>③スタッフに言われたシアタールームへ。チケットにも記載あり。</p>
+            <p>④チケットに記載されている座席番号通りの座席に着席。</p>
+        </div>
+
+        <!-- 下部ボタン（戻るだけ） -->
+        <div class="page-navigation">
+            <a href="ticketing.html" class="nav-btn btn-prev">戻る</a>
+        </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const hamburgerBtn = document.querySelector(".hamburger-menu");
+        const drawerMenu = document.querySelector(".drawer-menu");
+        const drawerCloseBtn = document.querySelector(".drawer-close");
+        const drawerOverlay = document.querySelector(".drawer-overlay");
+        const drawerLinks = document.querySelectorAll(".drawer-nav-list a");
+
+        // メニューを開く関数
+        const openMenu = () => {
+          drawerMenu.classList.add("is-active");
+          drawerOverlay.classList.add("is-active");
+          document.body.style.overflow = "hidden"; // 背景スクロール固定
+        };
+
+        // メニューを閉じる関数
+        const closeMenu = () => {
+          drawerMenu.classList.remove("is-active");
+          drawerOverlay.classList.remove("is-active");
+          document.body.style.overflow = ""; // スクロール解除
+        };
+
+        // イベント設定
+        hamburgerBtn.addEventListener("click", openMenu);
+        drawerCloseBtn.addEventListener("click", closeMenu);
+        drawerOverlay.addEventListener("click", closeMenu);
+
+        // リンクをクリックした際も自動で閉じる
+        drawerLinks.forEach((link) => {
+          link.addEventListener("click", closeMenu);
+        });
+      });
+    </script>
+</body>
+</html>

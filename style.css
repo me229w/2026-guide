@@ -7,7 +7,7 @@
     --brand-maroon: #6B0F10;   /* 深いワインレッド（文字用） */
     --brand-red-base: #7F1718; /* メインの赤背景 */
     --brand-red-dark: #A43030; /* ヘッダーの赤 */
-    --brand-gold: #D59D00;     /* 金色・黄色のアクセントボタンボタン */
+    --brand-gold: #D59D00;     /* 金色・黄色のアクセントボタン */
     --text-dark: #000000;
     
     /* フォントファミリー */
@@ -28,9 +28,11 @@ body {
     font-family: var(--font-sans);
     color: var(--text-dark);
     overflow-x: hidden;
+    overflow-x: auto;
 }
 
 img {
+    margin: 0%;
     max-width: 100%;
     height: auto;
     display: block;
@@ -102,6 +104,7 @@ img {
     font-family: var(--font-serif);
     font-size: 42px;
     font-weight: 700;
+    white-space: nowrap;
 }
 
 .header-nav {
@@ -117,6 +120,7 @@ img {
     font-size: 22px;
     font-weight: 700;
     position: relative;
+    white-space: nowrap; /* ★これが一番重要：文字の途中折れ（改行）を防止 */
 }
 
 /* ナビゲーションの間の縦線仕切り */
@@ -144,46 +148,145 @@ img {
     justify-content: center;
     align-items: center;
     gap: 10px;
+    flex-shrink: 0;
+    gap: 8px;           /* 隙間を一定にする */
+    flex-shrink: 0;     /* 楕円化を防止 */
+    padding: 0;         /* 予期せぬズレを防止 */
 }
 .hamburger-menu span {
-    display: block;
-    width: 45px;
-    height: 4px;
+display: block;
+    width: 42px;
+    height: 4px;        /* 偶数（4pxや2px）にすると綺麗に縮小されやすいです */
     background-color: var(--brand-red-dark);
+    border-radius: 2px; /* 端を少し丸めると綺麗に見えます */
 }
+
+/* ==========================================
+   ドロワーメニュー（ハンバーガー展開用）
+   ========================================== */
+
+/* 暗い背景のオーバーレイ */
+.drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 998;
+}
+.drawer-overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* メニュー本体（右側からスライドイン） */
+.drawer-menu {
+    position: fixed;
+    top: 0;
+    right: -320px; /* 初期状態は画面外に隠す */
+    width: 280px;
+    height: 100vh;
+    background-color: var(--brand-red-base, #6B0F10); /* デザインに合わせたシックな深紅 */
+    padding: 60px 30px 40px 30px;
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease;
+    z-index: 999;
+}
+
+/* 表示時の位置 */
+.drawer-menu.is-active {
+    right: 0;
+}
+
+/* 閉じる（×）ボタン */
+.drawer-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+.drawer-close:hover {
+    opacity: 1;
+}
+
+/* ナビゲーションリスト */
+.drawer-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.drawer-nav-list li a {
+    color: #F6E0BB; /* ベージュ/ゴールド調のフォントカラー */
+    font-family: var(--font-serif);
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    display: block;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.drawer-nav-list li a:hover {
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
 
 /* ==========================================================================
    3. メインビジュアル (Hero Section)
    ========================================================================== */
-.hero-section {
+   .hero-section {
     width: 100%;
     background-color: #000000; /* シアターの暗がりを再現する黒帯 */
     padding: 60px 0;
 }
 
 .hero-inner {
-    width: 1440px;
     margin: 0 auto;
-    background-color: var(--brand-red-base); /* 赤い布シートのような背景 */
     display: flex;
     align-items: center;
     padding: 40px 60px;
     position: relative;
     min-height: 580px;
+    max-width: 1400px;
+
+    background-image: url("images/midashi.jpg");
+    background-size: cover; /* 背景画像を隙間なく表示 */
+    background-position: center; /* 画像の中心を基準にする */
+    background-repeat: no-repeat;
+
+    gap: 60px;
 }
 
+
+
 .hero-circle-image {
-    width: 480px;
-    height: 480px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 8px solid rgba(255,255,255,0.1);
-    flex-shrink: 0;
+position: relative;
+  width: 100%;             /* 変更：固定値600pxから可変に変更 */
+  max-width: 500px;        /* 変更：PCでの最大サイズを調整 */
+  aspect-ratio: 1 / 1;     /* ★追加：常に正方形（1:1）を維持する */
+  flex-shrink: 0;          /* ★追加：横幅がつぶされるのを防ぐ */
+  margin: 0;               /* 調整 */
 }
 .hero-circle-image img {
+  
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .hero-content {
@@ -192,6 +295,8 @@ img {
 }
 
 .hero-lead-text {
+
+    text-align: left;
     font-family: var(--font-serif);
     font-size: 18px;
     font-weight: 700;
@@ -216,7 +321,7 @@ img {
     transition: background-color 0.3s;
 }
 .btn-cta:hover {
-    background-color: #bfa300;
+    background-color: #9e7a17;
 }
 
 /* ==========================================================================
@@ -276,7 +381,7 @@ img {
 }
 
 .recommend-img {
-    width: 100%;
+    width: 85%;
     height: 175px;
     object-fit: cover;
     border-radius: 8px;
@@ -302,6 +407,7 @@ img {
     display: grid;
     grid-template-columns: 1fr 1fr; /* 2列構成 */
     gap: 60px 40px;
+    flex-wrap: wrap;
 }
 
 .flow-item {
@@ -382,6 +488,13 @@ img {
     gap: 25px;
 }
 
+.movie-card a.movie-link {
+    display: block;
+    text-decoration: none; /* 下線を消す */
+    color: inherit;         /* 文字色を継承（黒のままにする） */
+    height: 100%;
+}
+
 .movie-card {
     width: 18%;
     background: #ffffff;
@@ -389,6 +502,14 @@ img {
     border-radius: 12px;
     overflow: hidden;
     padding-bottom: 15px;
+
+    
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px); /* 上に5px浮き出る */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* 影を少し濃くする */
 }
 
 .movie-img {
@@ -405,20 +526,26 @@ img {
     color: #000000;
 }
 
-.slider-dots {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-top: 40px;
-}
-.slider-dots .dot {
-    width: 24px;
-    height: 24px;
-    background-color: #D9D9D9;
-    border-radius: 50%;
+
+/* ホバー時の見た目（マウスを乗せたとき） */
+.slider-dots .dot:hover {
+    background-color: #a43030; /* 少し明るい赤色に変化 */
+    transform: scale(1.15);    /* わずかに拡大 */
 }
 .slider-dots .dot.active {
     background-color: var(--brand-maroon); /* アクティブなドット */
+}
+* 作品スライダーコンテナのスクロール設定（JSで滑らかに動かすため） */
+.movie-slider-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    overflow-x: auto; /* 横スクロール可能にする */
+    scroll-behavior: smooth; /* スクロールアニメーションを滑らかに */
+    scrollbar-width: none; /* スクロールバーを非表示（Firefox） */
+}
+.movie-slider-container::-webkit-scrollbar {
+    display: none; /* スクロールバーを非表示（Chrome/Safari） */
 }
 
 /* ==========================================================================
@@ -449,6 +576,7 @@ img {
     display: flex;
     justify-content: space-between;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .charm-box {
@@ -460,6 +588,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .charm-txt {
@@ -487,6 +616,18 @@ img {
     position: relative;
 }
 
+/* ★マナーのテキスト（文字を大きく調整） */
+.manner-text,
+.manner-item p {
+  font-size: 26px ;   /* ★文字サイズを大きく（お好みに合わせて20pxなどでもOK） */
+  font-weight: bold;            /* 太字 */
+  line-height: 1.6;             /* 行間を少し開けて読みやすく */
+  color: #333333;               /* 文字色 */
+  margin: 0;
+  border: none ;
+  font-family: var(--font-serif);
+}
+
 /* 左上の見出しリボン風デコレーション */
 .manner-ribbon-title {
     display: inline-block;
@@ -494,7 +635,7 @@ img {
     color: #ffffff;
     font-family: var(--font-serif);
     font-size: 38px;
-    font-weight: 600;
+    font-weight: 900;
     padding: 15px 60px;
     margin-bottom: 60px;
 }
@@ -510,6 +651,7 @@ img {
     display: flex;
     align-items: center;
     width: 100%;
+    gap: 30px; /* 左右の間隔 */
 }
 
 .manner-circle-icon {
@@ -527,12 +669,7 @@ img {
     color: #000000;
 }
 
-.manner-line-border {
-    flex-grow: 1;
-    margin-left: 30px;
-    height: 1px;
-    background-color: #000000;
-}
+
 
 .manner-footer-note {
     text-align: right;
@@ -541,6 +678,35 @@ img {
     font-weight: 600;
     color: #000000;
     margin-top: 20px;
+}
+
+/* 親要素から指定してCSS優先順位（詳細度）を上げる */
+body .manner-section .manner-item img,
+body .manner-item img {
+  width: 120px;            /* アイコンの幅 */
+  height: 120px;           /* アイコンの高さ（幅と同じ数値に） */
+  min-width: 75px;        /* ★潰れ防止：最小幅を固定 */
+  min-height: 75px;       /* ★潰れ防止：最小高さを固定 */
+  object-fit: cover;      /* 縦横比を崩さずきれいに収める */
+  border-radius: 50%;     /* きれいな正円にする */
+  flex-shrink: 0;         /* ★Flexboxで画像が横につぶれるのを防ぐ */
+}
+
+body .manner-section hr,
+body hr.manner-hr,
+body hr {
+  border: none;
+  border-top: 1px solid #000000; /* ★ここを黒色（#000000）に変更 */
+  height: 0;
+  margin: 28px 0;
+  width: 100%;
+  display: block;
+}
+/* 画像とテキストの左右の間隔調整 */
+body .manner-section .manner-item {
+  display: flex;
+  align-items: center;
+  gap: 30px;              /* 画像とテキストのすき間 */
 }
 
 /* ==========================================================================
@@ -566,8 +732,8 @@ img {
 }
 
 .info-thumb {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     background-color: #D9D9D9;
     flex-shrink: 0;
 }
@@ -591,44 +757,7 @@ img {
     background-color: #000000;
 }
 
-/* ==========================================================================
-   9. Q&A セクション (Q&A Section)
-   ========================================================================== */
-.qa-section {
-    width: 100%;
-    background-color: #F6E0BB;
-    padding: 80px 0;
-}
 
-.qa-inner {
-    width: 1440px;
-    margin: 0 auto;
-    padding: 0 50px;
-}
-
-.qa-list {
-    display: flex;
-    flex-direction: column;
-    gap: 35px;
-    margin-top: 50px;
-}
-
-.qa-accordion-bar {
-    width: 100%;
-    height: 75px;
-    background-color: #ffffff;
-    /* 右側のアコーディオン矢印アイコンのダミー表現 */
-    position: relative;
-}
-.qa-accordion-bar::after {
-    content: "▼";
-    position: absolute;
-    right: 30px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 14px;
-    color: #888888;
-}
 
 /* ==========================================================================
    10. フッター (Footer)
@@ -636,7 +765,7 @@ img {
 .site-footer {
     width: 100%;
     height: 350px;
-    background-color: #7D7D7D;
+    background-color: #7F1718;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -647,4 +776,208 @@ img {
     font-family: var(--font-serif);
     font-size: 16px;
     font-weight: 600;
+}
+
+
+/* ==========================================================================
+   11. スマートフォン対応（レスポンシブ：768px以下）
+   ========================================================================== */
+   
+@media (max-width: 768px) {
+
+    /* --- 共通：1440pxなどの固定幅をすべて100%に調整 --- */
+    .header-inner,
+    .recommend-section,
+    .flow-section,
+    .movies-section,
+    .charm-inner,
+    .manner-inner,
+    .info-section,
+    .qa-inner {
+        width: 100% !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
+    /* --- 1. ヘッダー --- */
+    .site-header {
+        height: 70px;
+        padding: 0 15px;
+    }
+    .site-logo {
+        font-size: 24px;
+    }
+    /* スマホではPC用メニューを隠してハンバーガーボタンのみにする */
+    .header-nav {
+        display: none;
+    }
+    .hamburger-menu {
+        width: 45px;
+        height: 45px;
+        gap: 5px;
+        flex-shrink: 0
+    }
+    .hamburger-menu span {
+        width: 24px;
+        height: 3px;
+    }
+
+    /* --- 2. メインビジュアル --- */
+    .hero-section {
+        padding: 20px 0;
+        margin: 0%;
+    }
+    .hero-inner {
+        margin: 0%;
+        flex-direction: column; /* 縦並びに変換 */
+        min-height: auto;
+        padding: 20px 15px;
+        gap: 30px;
+    }
+    /*まるアイコン*/
+    .hero-circle-image {
+       width:100%;
+        max-width:260px ;
+        margin: 0 auto;
+    }
+    .hero-content {
+        margin-left: 0;
+        text-align: center;
+    }
+    .hero-lead-text {
+        font-size: 14px;
+        line-height: 1.8;
+text-align: justify;      /* 両端を綺麗に揃えてガタつきを防ぐ */
+    word-break: break-all;     /* 単語の途中で自然に折り返す */
+    width: 90%;               /* 左右に適度な余白を作る */
+    margin: 0 auto;           /* 文章ブロック自体を中央に配置 */
+    }
+    .btn-cta {
+        width: 100%;
+        max-width: 320px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 16px;
+        margin-top: 25px;
+    }
+
+    /* --- 3. こんな人におすすめ --- */
+    .stripe-bg-container {
+        padding: 50px 0;
+    }
+    .recommend-section {
+        margin-bottom: 60px;
+    }
+    .recommend-grid {
+        flex-wrap: wrap; /* 2列で折り返し */
+        gap: 30px 10%;
+    }
+    .recommend-card {
+        width: 45%;
+    }
+    .recommend-img {
+
+        height: 100%;
+    }
+    .recommend-txt {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    /* --- 4. 映画までの流れ --- */
+    .flow-grid {
+        grid-template-columns: 1fr; /* 1列に変換 */
+        gap: 40px;
+    }
+    .flow-item {
+        flex-direction: column; /* 画像と文章を縦並びに */
+        align-items: center;
+        text-align: center;
+    }
+    .flow-body {
+        margin-left: 0;
+        margin-top: 15px;
+        height: auto;
+        align-items: center;
+    }
+    .flow-img {
+        width: 200px;
+        height: 200px;
+    }
+    .flow-step-title {
+        font-size: 20px;
+    }
+    .flow-step-desc {
+        font-size: 14px;
+        max-width: 100%;
+    }
+    .btn-detail {
+        margin-top: 15px;
+    }
+
+    /* --- 5. 作品紹介 --- */
+    .movies-section {
+        padding: 40px 20px;
+    }
+    .section-title-serif,
+    .section-title-serif.text-left {
+        font-size: 24px;
+    }
+    .movie-slider-container {
+        flex-direction: column; /* 1列で並べる */
+        gap: 20px;
+    }
+    .movie-card {
+        width: 100%;
+    }
+    .movie-img {
+        height: 240px;
+    }
+
+    /* --- 6. ひとり映画の魅力 --- */
+    .charm-main-title {
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .charm-grid {
+        flex-direction: column; /* 縦並び */
+        gap: 15px;
+    }
+    .charm-box {
+        width: 100%;
+        height: auto;
+        min-height: 100px;
+        padding: 15px;
+    }
+
+    /* --- 7. 鑑賞中のマナー --- */
+    .manner-ribbon-title {
+        font-size: 22px;
+        padding: 10px 30px;
+        margin-bottom: 30px;
+    }
+    .manner-circle-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 14px;
+    }
+
+    /* --- 8. お役立ち情報 ＆ Q&A --- */
+    .info-grid {
+        grid-template-columns: 1fr; /* 1列化 */
+        gap: 30px;
+    }
+    .btn-more-white {
+        width: 100%;
+        max-width: 300px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 20px;
+    }
+    
+    .site-footer {
+        height: 150px;
+    }
+    
 }

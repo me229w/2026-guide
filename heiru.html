@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プロジェクト・ヘイル・メアリー - 映画詳細</title>
+  <link rel="stylesheet" href="movies.css">
+</head>
+<body>
+
+  <!-- ヘッダーエリア -->
+  <header class="site-header">
+    <div class="breadcrumb">
+    <a href="index.html">Home</a> &gt;
+  </div>
+    <div class="header-inner">
+      <button class="menu-btn hamburger-menu" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <!-- スライドドロワーメニュー -->
+    <div class="drawer-menu">
+      <button class="drawer-close" aria-label="メニューを閉じる">×</button>
+      <ul class="drawer-nav-list">
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="movie.html">映画選び</a></li>
+        <li><a href="ticket.html">チケット購入</a></li>
+        <li><a href="ticketing.html">発券</a></li>
+        <li><a href="adomission.html">入場</a></li>
+      </ul>
+    </div>
+    <!-- オーバーレイ（背景の暗がり） -->
+    <div class="drawer-overlay"></div>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- 映画メイン情報セクション -->
+      <section class="movie-intro">
+        <!-- 左側：ポスタービジュアル -->
+        <div class="movie-poster">
+          <img src="images/heiru.png" alt="プロジェクト・ヘイル・メアリー ポスター">
+        </div>
+        
+        <!-- 右側：テキスト詳細情報 -->
+        <div class="movie-detail">
+          <h1 class="movie-title">プロジェクト・ヘイル・メアリー</h1>
+          
+          <div class="tag-container">
+
+            <span class="tag">全年齢</span>
+             <span class="tag">SF</span>
+          </div>
+          
+          <div class="rating-container">
+            <div class="stars">★★★★☆</div>
+            <span class="rating-score">3.9</span>
+          </div>
+          
+          <div class="action-buttons">
+            <a href="https://projecthm.movie/" class="btn btn-primary">公式サイトを見る <span class="icon">↗</span></a>
+            <a href="https://eiga.com/movie/104209/theater/" class="btn btn-secondary">上映館・スケジュールを探す <span class="icon">📍</span></a>
+          </div>
+          
+          <p class="movie-summary">
+           太陽のエネルギーが急速に失われ、人類滅亡まで残された時間はわずか。目を覚ましたライランド・グレースは、宇宙船の中で自分の記憶を失っていることに気づく。少しずつ記憶を取り戻す中で、自らが地球を救う極秘ミッション「プロジェクト・ヘイル・メアリー」の唯一の生存者であることを知る。科学の知識を武器に謎へ挑む彼は、宇宙の果てで思いもよらぬ出会いを果たし、人類と仲間の未来を懸けた壮大な冒険に身を投じていく。 
+
+          </p>
+          
+          <div class="review-section">
+            <span class="review-badge">レビュー</span>
+            <p class="review-text">
+             『プロジェクト・ヘイル・メアリー』は、壮大なSFでありながら、人と人（そして“人ならざる存在”）との絆を丁寧に描いた感動作です。物語は宇宙でのサバイバルや科学的な謎解きがテンポよく進み、専門的な内容も主人公と一緒に考えながら楽しめるため、SF初心者でも引き込まれます。次々と訪れる困難を知恵と工夫で乗り越えていく展開は手に汗握る面白さがあり、最後まで飽きさせません。また、本作の大きな魅力は、言葉や文化の違いを越えて築かれる信頼関係です。ユーモアを交えたやり取りや、お互いを思いやる姿に心が温まり、単なる宇宙冒険では終わらない深い感動を味わえます。希望や勇気、仲間を信じることの大切さを描いた作品で、鑑賞後には爽やかな余韻が残る、幅広い世代におすすめできるSF映画です。
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+
+    </div>
+  </main>
+
+  <!-- フッター（ストライプ背景） -->
+  <footer class="site-footer"></footer>
+
+  <!-- メニュー開閉用JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburgerBtn = document.querySelector(".hamburger-menu");
+      const drawerMenu = document.querySelector(".drawer-menu");
+      const drawerCloseBtn = document.querySelector(".drawer-close");
+      const drawerOverlay = document.querySelector(".drawer-overlay");
+      const drawerLinks = document.querySelectorAll(".drawer-nav-list a");
+
+      // メニューを開く関数
+      const openMenu = () => {
+        drawerMenu.classList.add("is-active");
+        drawerOverlay.classList.add("is-active");
+        document.body.style.overflow = "hidden"; // 背景スクロール固定
+      };
+
+      // メニューを閉じる関数
+      const closeMenu = () => {
+        drawerMenu.classList.remove("is-active");
+        drawerOverlay.classList.remove("is-active");
+        document.body.style.overflow = ""; // スクロール解除
+      };
+
+      // イベント設定
+      if (hamburgerBtn) hamburgerBtn.addEventListener("click", openMenu);
+      if (drawerCloseBtn) drawerCloseBtn.addEventListener("click", closeMenu);
+      if (drawerOverlay) drawerOverlay.addEventListener("click", closeMenu);
+
+      // リンククリック時に自動で閉じる
+      drawerLinks.forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+    });
+  </script>
+</body>
+</html>

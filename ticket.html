@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ステップ2. チケット購入</title>
+    <link rel="stylesheet" href="flow.css" />
+  </head>
+  <body>
+    <header class="page-header">
+      <div class="breadcrumb">
+       <a href="index.html">Home</a> &gt;</div>
+      <button class="hamburger-menu"aria-label="メニューを開ける">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <!-- スライドドロワーメニュー -->
+      <div class="drawer-menu">
+        <button class="drawer-close" aria-label="メニューを閉じる">×</button>
+        <ul class="drawer-nav-list">
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="movie.html">映画選び</a></li>
+          <li><a href="ticket.html">チケット購入</a></li>
+          <li><a href="ticketing.html">発券</a></li>
+          <li><a href="adomission.html">入場</a></li>
+        </ul>
+      </div>
+      <!-- オーバーレイ（背景の暗がり） -->
+      <div class="drawer-overlay"></div>
+    </header>
+
+    <div class="container">
+      <h1 class="step-title">ステップ２．チケット購入</h1>
+      <h2 class="section-title" style="margin-bottom: 40px">オンライン購入</h2>
+
+      <!-- ①上映時間選択 -->
+      <h2 class="section-title">①希望の映画館サイトから映画・日付上映時間を選択</h2>
+      <div class="flex-row">
+        <div class="flex-left">
+          <!-- ここにシアター時間選択の画像を入れます -->
+          <img src="images/time.png" alt="シアタースケジュール" style="width: 100%; height: auto" />
+        </div>
+        <div class="flex-right">
+          <p>平日朝または深夜帯は人が少なく見やすいです。
+          購入は映画館によって異なりますが大体２、３日前から映画チケットの購入が可能になります。</p>
+        </div>
+      </div>
+
+      <hr class="separator" />
+
+      <!-- ②座席選択 -->
+      <h2 class="section-title">②座席選択</h2>
+      <div class="flex-row">
+        <div class="flex-left">
+          <!-- ここに座席表の画像を入れます -->
+          <img src="images/screen.png" alt="座席選択" style="width: 100%; height: auto" />
+        </div>
+        <div class="flex-right">
+          <p>座席後方にスピーカーがあるため大きい音で見たい人、全体を見渡したい人は座席後方がおすすめです。
+          映画に集中したい、見やすい席は真ん中がおすすめです。</p>
+        </div>
+      </div>
+
+      <hr class="separator" />
+
+      <!-- ③購入 -->
+      <h2 class="section-title">③購入</h2>
+      <div class="flex-row">
+        <div class="flex-left">
+          <!-- ここにご予約内容（決済画面）の画像を入れます -->
+          <img src="images/paper.png" alt="ご予約内容確認" style="width: 100%; height: auto" />
+        </div>
+        <div class="flex-right">
+          <p>映画館クーポンを使用する際はこの時に使用します。
+          映画館の会員になるとポイントが貯まるため、頻繁に映画館を利用される方は入会をお勧めします。</p>
+        </div>
+      </div>
+
+      <p class="note-text" style="margin-top: 40px">
+        ※券売機購入とオンラインチケット購入の手順はほとんど変わりません。
+      </p>
+      <p class="note-text">※分からない点につきましては各映画サイトや窓口スタッフにお問い合わせ下さい。</p>
+
+      <!-- 下部ボタン（戻る・次へ） -->
+      <div class="page-navigation">
+        <a href="movie.html" class="nav-btn btn-prev">戻る</a>
+        <a href="ticketing.html" class="nav-btn btn-next">次へ進む</a>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const hamburgerBtn = document.querySelector(".hamburger-menu");
+        const drawerMenu = document.querySelector(".drawer-menu");
+        const drawerCloseBtn = document.querySelector(".drawer-close");
+        const drawerOverlay = document.querySelector(".drawer-overlay");
+        const drawerLinks = document.querySelectorAll(".drawer-nav-list a");
+
+        // メニューを開く関数
+        const openMenu = () => {
+          drawerMenu.classList.add("is-active");
+          drawerOverlay.classList.add("is-active");
+          document.body.style.overflow = "hidden"; // 背景スクロール固定
+        };
+
+        // メニューを閉じる関数
+        const closeMenu = () => {
+          drawerMenu.classList.remove("is-active");
+          drawerOverlay.classList.remove("is-active");
+          document.body.style.overflow = ""; // スクロール解除
+        };
+
+        // イベント設定
+        hamburgerBtn.addEventListener("click", openMenu);
+        drawerCloseBtn.addEventListener("click", closeMenu);
+        drawerOverlay.addEventListener("click", closeMenu);
+
+        // リンクをクリックした際も自動で閉じる
+        drawerLinks.forEach((link) => {
+          link.addEventListener("click", closeMenu);
+        });
+      });
+    </script>
+  </body>
+</html>

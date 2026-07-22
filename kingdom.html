@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>キングダム　魂の決戦 - 映画詳細</title>
+  <link rel="stylesheet" href="movies.css">
+</head>
+<body>
+
+  <!-- ヘッダーエリア -->
+  <header class="site-header">
+    <div class="breadcrumb">
+    <a href="index.html">Home</a> &gt;
+  </div>
+    <div class="header-inner">
+      <button class="menu-btn hamburger-menu" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <!-- スライドドロワーメニュー -->
+    <div class="drawer-menu">
+      <button class="drawer-close" aria-label="メニューを閉じる">×</button>
+      <ul class="drawer-nav-list">
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="movie.html">映画選び</a></li>
+        <li><a href="ticket.html">チケット購入</a></li>
+        <li><a href="ticketing.html">発券</a></li>
+        <li><a href="adomission.html">入場</a></li>
+      </ul>
+    </div>
+    <!-- オーバーレイ（背景の暗がり） -->
+    <div class="drawer-overlay"></div>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- 映画メイン情報セクション -->
+      <section class="movie-intro">
+        <!-- 左側：ポスタービジュアル -->
+        <div class="movie-poster">
+          <img src="images/kingdom5.png" alt="Michael マイケル ポスター">
+        </div>
+        
+        <!-- 右側：テキスト詳細情報 -->
+        <div class="movie-detail">
+          <h1 class="movie-title">キングダム　魂の決戦</h1>
+          
+          <div class="tag-container">
+
+            <span class="tag">全年齢</span>
+          </div>
+          
+          <div class="rating-container">
+            <div class="stars">★★★★☆</div>
+            <span class="rating-score">4.0</span>
+          </div>
+          
+          <div class="action-buttons">
+            <a href="https://kingdom-the-movie.jp/" class="btn btn-primary">公式サイトを見る <span class="icon">↗</span></a>
+            <a href="https://eiga.com/movie/104266/theater/" class="btn btn-secondary">上映館・スケジュールを探す <span class="icon">📍</span></a>
+          </div>
+          
+          <p class="movie-summary">
+           春秋戦国時代の中国。天下の大将軍を目指す少年・信は、仲間たちとともに数々の死線を潜り抜け、着実にその名を中華全土へと響かせていた。しかし、秦国の存亡を揺るがす史上最大の危機が迫る。圧倒的な兵力と緻密な戦略を誇る敵国の大軍勢に対し、信率いる飛信隊と秦国軍は、国家の命運を賭けた極限の決戦へと挑むこととなる。絶望的な戦況のなか、絆と信念を胸に立ち向かう兵士たちの熱き魂と、激動の時代を生き抜く男たちの葛藤を描いた壮大な歴史スペクタクル超大作。
+
+          </p>
+          
+          <div class="review-section">
+            <span class="review-badge">レビュー</span>
+            <p class="review-text">
+             スクリーンを埋め尽くす圧倒的なスケール感と、息をのむようなリアルなアクションシーンが胸を打つ大傑作です。特に千人・万人単位の兵士が激突する戦場シーンは凄まじい迫力があり、まるで自分も戦地の真っ只中に立っているかのような臨場感を味わえます。主演をはじめとするキャスト陣の熱演も見事で、鋭い眼光や殺陣の重み、仲間のために命を懸ける情熱が見事に表現されています。緻密な戦術の応酬やキャラクターごとのドラマも丁寧に描かれており、原作ファンはもちろん、初めて作品に触れる人でもその熱量に一気に引き込まれること間違いなしの一作です。
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+
+    </div>
+  </main>
+
+  <!-- フッター（ストライプ背景） -->
+  <footer class="site-footer"></footer>
+
+  <!-- メニュー開閉用JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburgerBtn = document.querySelector(".hamburger-menu");
+      const drawerMenu = document.querySelector(".drawer-menu");
+      const drawerCloseBtn = document.querySelector(".drawer-close");
+      const drawerOverlay = document.querySelector(".drawer-overlay");
+      const drawerLinks = document.querySelectorAll(".drawer-nav-list a");
+
+      // メニューを開く関数
+      const openMenu = () => {
+        drawerMenu.classList.add("is-active");
+        drawerOverlay.classList.add("is-active");
+        document.body.style.overflow = "hidden"; // 背景スクロール固定
+      };
+
+      // メニューを閉じる関数
+      const closeMenu = () => {
+        drawerMenu.classList.remove("is-active");
+        drawerOverlay.classList.remove("is-active");
+        document.body.style.overflow = ""; // スクロール解除
+      };
+
+      // イベント設定
+      if (hamburgerBtn) hamburgerBtn.addEventListener("click", openMenu);
+      if (drawerCloseBtn) drawerCloseBtn.addEventListener("click", closeMenu);
+      if (drawerOverlay) drawerOverlay.addEventListener("click", closeMenu);
+
+      // リンククリック時に自動で閉じる
+      drawerLinks.forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+    });
+  </script>
+</body>
+</html>
