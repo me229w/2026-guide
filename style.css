@@ -251,7 +251,7 @@ display: block;
    ========================================================================== */
    .hero-section {
     width: 100%;
-    background-color: #000000; /* シアターの暗がりを再現する黒帯 */
+    background-color: #000000; 
     padding: 60px 0;
 }
 
@@ -264,33 +264,30 @@ display: block;
     min-height: 580px;
     max-width: 1400px;
 
-    background-image: url("images/midashi.jpg");
-    background-size: cover; /* 背景画像を隙間なく表示 */
-    background-position: center; /* 画像の中心を基準にする */
+    background-image: url("images/main-pic.png");
+    background-size: cover; 
+    background-position: center; 
     background-repeat: no-repeat;
 
-    gap: 60px;
+    gap: 30px;
 }
 
 
 
 .hero-circle-image {
 position: relative;
-  width: 100%;             /* 変更：固定値600pxから可変に変更 */
-  max-width: 500px;        /* 変更：PCでの最大サイズを調整 */
+  width: 500px;             /* 変更：固定値600pxから可変に変更 */
+  max-width: 600px;        /* 変更：PCでの最大サイズを調整 */
   aspect-ratio: 1 / 1;     /* ★追加：常に正方形（1:1）を維持する */
   flex-shrink: 0;          /* ★追加：横幅がつぶされるのを防ぐ */
   margin: 0;               /* 調整 */
-}
-.hero-circle-image img {
-  
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+
 }
 
+
+
 .hero-content {
-    margin-left: 60px;
+    margin-left: 0;
     color: #ffffff;
 }
 
@@ -517,6 +514,8 @@ position: relative;
     height: 320px;
     object-fit: cover;
 }
+
+
 
 .movie-title {
     padding: 15px 10px 0 10px;
